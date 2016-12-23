@@ -2,6 +2,15 @@
 
 #
 
+## Citations
+
+所有原始的文献库在 zotero 中, 安装 ZotFile 和 zotero-better-bibtex 插件.
+
+导出为 `Better bibtex` (不用 biblatex), 再用 Jabref 打开修改.
+
+`\cite{Watterson1975}`: `Watterson 1975`
+`\parencite{Watterson1975}`: `(Watterson 1975)`
+
 ## arara and latexindent
 
 * `indent.yaml` for arara
@@ -12,25 +21,6 @@
 
 cat <<'EOF' > indent.yaml
 !config
-# indent rule for arara
-# author: Paulo Cereda, Chris Hughes
-# last updated: 11/9/2013
-# requires arara 3.0+
-#
-# Sample usage:
-#
-# % arara: indent
-# % arara: indent: {overwrite: yes}
-# % arara: indent: {output: myfile.tex, silent: no}
-# % arara: indent: {output: myfile.tex, silent: yes, overwrite: yes}
-# % arara: indent: {trace: true}
-# % arara: indent: {localSettings: true}
-# % arara: indent: {onlyDefault: on}
-# % arara: indent: { cruft: /home/cmhughes/Desktop }
-#
-# Directories with spaces will cause issues in the cruft call.
-#
-# Note: output will take priority above overwrite
 identifier: indent
 name: Indent
 command: <arara> @{ isWindows( "cmd /c latexindent.exe", "latexindent" ) } @{silent} @{trace} @{localSettings} @{cruft}@{ isNotEmpty( cruft, '="'.concat(parameters.cruft).concat('"') ) } @{overwrite}  @{onlyDefault} @{output} "@{file}" @{ isNotEmpty( output, '"'.concat(parameters.output).concat('"') ) }

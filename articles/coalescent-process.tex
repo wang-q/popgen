@@ -69,7 +69,7 @@ Watterson 1982a, 1982b). 并且, 也不会讨论基因树和物种树之间关�
 
 系谱的统计性质强烈依赖于样本的上一代形成下一代的模式. 在本文中, 只讨论 Wright--Fisher (W--F) 模型.
 将在下一个小节简要描述此模型中, 上一代产生下一代的模式. 一系列可选择的中性模型本质上有和 W--F 模型相同的系谱性质,
-只需要改变时间标度即可 \parencite{Watterson1975} (Kingman 1982a,b; Tavare 1984 review; Ewens 1989 review).
+只需要改变时间标度即可 \parencite{watterson1975} (Kingman 1982a,b; Tavare 1984 review; Ewens 1989 review).
 
 \section{不考虑中性突变过程的系谱过程}
 
@@ -83,7 +83,7 @@ Watterson 1982a, 1982b). 并且, 也不会讨论基因树和物种树之间关�
 
 中性突变过程中, 每个后代相对于亲本的突变的位点数符合泊松分布. 突变数的平均值 $\upmu$ 可以假定为常数, 不依赖于基因型,
 群体大小和时间. 同时假定突变在不同个体和不同代之间独立发生. 这种突变过程称为恒定突变率的中性突变过程,
-也就是标准的中性突变模型 \parencite{Kimura1983, Watterson1975}. 在这些假设下,
+也就是标准的中性突变模型 \parencite{kimura1983, watterson1975}. 在这些假设下,
 沿着世系以不变的方式积累的突变不依赖诸如群体大小, 时间和连锁位点的选择事件等因素. 给定 $t$,
 从共同祖先到两个同源样本序列的世代数, $S$, 向下到这两个派生的序列过程中产生的突变数, 是泊松分布的, 有平均值 $2 \upmu
 t$. 当 $t$ 是一个随机变量时, 假设是恒定突变率的中性突变过程, 平均数和方差 --- 实际是 $S$ 的所有瞬间值 --- 都是由时刻
@@ -125,14 +125,14 @@ $S$ 的平均值完全由 $T_{\text{tot}}$ 的平均值决定. 两个不同的�
 次抽样得到的 $N$ 个子一代单倍体个体 (并且复制可能有突变) 取代亲本一代. 在选择中性的角度, 所有亲代个体有相同可能性作为子代
 $N$ 个单倍体个体的亲本. Ewens (1979) 中有这个模型的详细描述. 我们假设 $N$ 很大并且恒定,
 在这种情况下个体的后代数目近似于泊松分布. 关于这个模型的大多数结果都是近似的, 和 $(1/N)$ 相比忽略 $(1/N^{2})$ 项.
-这和通常对扩散近似所做的假设一致, 称作扩散近似. 与 W--F 模型相比, Moran 模型通常能得到精确结果 \parencite{Watterson1975}.
+这和通常对扩散近似所做的假设一致, 称作扩散近似. 与 W--F 模型相比, Moran 模型通常能得到精确结果 \parencite{watterson1975}.
 这里不讨论 Moran 模型.
 
 \section{最简单的情况: 没有选择也没有重组}
 
 尽管系谱过程在很多已经进行了多年的工作中是不言明的, 但它是关于遗传材料和得到那些激励直接考虑系谱过程的早期工作的序列数据
-(或限制性图谱数据) 可能性的本质的知识. \cite{Watterson1975} 引人注目的论文描述了中性模型下系谱的基本性质,
-并且标志着现代溯祖理论的开始. 下面关于 W--F 中性模型下非重组系谱的描述大量引自 \cite{Watterson1975}, Kingman
+(或限制性图谱数据) 可能性的本质的知识. \cite{watterson1975} 引人注目的论文描述了中性模型下系谱的基本性质,
+并且标志着现代溯祖理论的开始. 下面关于 W--F 中性模型下非重组系谱的描述大量引自 \cite{watterson1975}, Kingman
 (1980,1982a,b), Griffiths (1980) 和 Tajima (1983) 的工作.
 
 首先, 我们考虑一个理想的单倍体物种, 没有重组, 没有地理分化, 没有选择, 一个典型的普通单倍体物种.
@@ -213,8 +213,8 @@ $N$ 的值就是母本的数目.
     E(S)=\frac{\uptheta}{2} \sum_{i=2}^{n} iE(T(i)) = \uptheta \sum_{i=1}^{n-1}1/i
 \end{equation}
 
-其中 $\uptheta = 4N \upmu$ \parencite{Watterson1975}. 总时间的方差也很容易得到, 用方程 \ref{eq:2} 和 \ref{eq:6}, 得到
-\parencite{Watterson1975}:
+其中 $\uptheta = 4N \upmu$ \parencite{watterson1975}. 总时间的方差也很容易得到, 用方程 \ref{eq:2} 和 \ref{eq:6}, 得到
+\parencite{watterson1975}:
 
 \begin{equation} \label{eq:7}
     \text{Var}(S) = \uptheta \sum_{i=1}^{n-1} \frac{1}{i} + \uptheta^{2} \sum_{i=1}^{n-1} \frac{1}{i^{2}}
@@ -258,7 +258,7 @@ $–\uptheta C'(0)$, 其中 $–C'(0)$ 代表 $-C(\uptheta )$ 的导数, 取 $\u
 
 同样的方式, 可以得到 2 个个体的样本到共同祖先所发生的突变数目的总体分布. $P_{2}(j)$, 从 MRCA 开始 $j$
 个突变发生在世系上的概率, 就是起初的 $j$ 个事件是突变、第 $(j+1)$ 个事件是一个共同祖先的概率. 因此, 我们有
-\parencite{Watterson1975}:
+\parencite{watterson1975}:
 
 \begin{equation} \label{eq:10}
     P_{2}(j)=\left (\frac{\uptheta}{1+\uptheta}\right )^{j}\frac{1}{1+\uptheta}
@@ -443,7 +443,7 @@ W--F 模型下无重组时, 估计量的方差是 (见 Nei 1987 方程 10.9):
     \text{Var}(\hat{\uptheta})=\frac{n+1}{3(n-1)}\uptheta + \frac{2(n^{2}+n+3)}{9n(n-1)}\uptheta^{2}
 \end{equation}
 
-\cite{Watterson1975} 在方程 (6) 的基础上提出了一个估计量, 即:
+\cite{watterson1975} 在方程 (6) 的基础上提出了一个估计量, 即:
 
 \begin{equation} \label{eq:17}
     \hat{\uptheta}=\frac{S}{\sum_{i=1}^{n-1}1/i}
@@ -890,6 +890,8 @@ mtDNA 作为一个基因座, 核基因作为另一个基因座.
 \nomenclature[N]{Homologous sequences}{同源序列}
 \nomenclature[N]{Coalescent process}{溯祖过程}
 \nomenclature[N]{Allele}{等位基因}
+\nomenclature[N]{Mutation}{突变}
+\nomenclature[N]{Segregating sites}{隔离位点}
 \nomenclature[N]{Variation}{变异}
 \nomenclature[N]{Infinite-site model}{无限位点模型}
 \nomenclature[N]{Infinite allele model}{无限等位基因模型}
@@ -897,7 +899,6 @@ mtDNA 作为一个基因座, 核基因作为另一个基因座.
 \nomenclature[N]{Demographics}{人口统计学}
 \nomenclature[N]{Sampled allele}{样本等位基因}
 \nomenclature[N]{Stochastic precess}{随机过程}
-\nomenclature[N]{Segregating sites}{隔离位点}
 \nomenclature[N]{Restriction map}{限制性图谱}
 \nomenclature[N]{Hitchhiking}{搭乘效应}
                                                         	      	

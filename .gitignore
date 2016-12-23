@@ -25,6 +25,9 @@
 # latexindent backup
 *.bak0
 
+# Jabref
+popgen.bib.sav
+
 # Pictures
 *.jpg
 *.jpeg
