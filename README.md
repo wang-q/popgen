@@ -56,20 +56,10 @@ backupExtension: .bak
 onlyOneBackUp: 1
 maxNumberOfBackUps: 1
 cycleThroughBackUps: 0
-
-# indent preamble
 indentPreamble: 0
-
-# always look for split { }, which means that the user doesn't
-# have to complete checkunmatched, checkunmatchedELSE
 alwaysLookforSplitBraces: 1
-
-# always look for split [ ], which means that the user doesn't
-# have to complete checkunmatchedbracket
 alwaysLookforSplitBrackets: 1
-
-# remove trailing whitespace from all lines
-removeTrailingWhitespace: 0
+removeTrailingWhitespace: 1
 
 # environments that have tab delimiters, add more
 # as needed
@@ -198,13 +188,11 @@ itemNames:
     myitem: 1
 
 # if you want to indent if, else, fi constructs such as, for example,
-#
 #       \ifnum#1=2
 #               something
 #       \else
 #               something else
 #       \fi
-#
 # then populate them in constructIfElseFi
 constructIfElseFi:
     ifnum: 1
@@ -249,7 +237,6 @@ logFilePreferences:
 fileContentsEnvironments:
     filecontents: 1
     filecontents*: 1
-
 
 # *** NOTE ***
 # If you have specified alwaysLookforSplitBraces: 1
