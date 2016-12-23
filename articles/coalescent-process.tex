@@ -3,104 +3,9 @@
 % arara: xelatex
 % arara: indent: { overwrite: yes, trace: yes  }
 
-\documentclass[
-    12pt,%
-    %
-    ]{article}
+\documentclass[12pt]{article}
 
-\usepackage[a4paper, top=1in, bottom=1.25in, left=1in, right=1in]{geometry}
-
-\usepackage{amssymb,amsmath}
-\usepackage{upgreek} % upright greek symbols
-
-% xetex 西文字体
-% https://www.reddit.com/r/typography/comments/2vzkad/a_good_serif_webfont_to_pair_with_fira_sans_thats/
-\usepackage{fontspec,xltxtra,xunicode}
-    \setmainfont[BoldFont={Charter Bold}, ItalicFont={Charter Italic}]{Charter}
-    \setmonofont{Fira Mono}
-
-% 中文字体
-\usepackage{xeCJK}
-    \setCJKmainfont[BoldFont={Songti SC Bold}, ItalicFont={Kaiti SC Regular}]{Songti SC Regular}
-    \xeCJKsetup{CJKecglue = {\hskip 0pt plus 0.08\baselineskip}, xCJKecglue = {false}}
-    \punctstyle{plain}
-
-% don't move this line above
-\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-
-% Line spacing
-\linespread{1.5}
-
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-    \usepackage{microtype}
-    \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-
-\usepackage[unicode=true]{hyperref}
-\hypersetup{
-            pdftitle={基因系谱与溯祖过程},
-            pdfauthor={Richard R. Hudson; 许颖; 王强},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
-\usepackage{graphicx,grffile}
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\providecommand{\tightlist}{%
-    \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{0}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-% set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
-
-%%% custom settings
-
-% subcaption
-% http://tex.stackexchange.com/questions/125579/subcaption-with-beamer
-\usepackage[compatibility=false]{caption}
-\usepackage{subcaption}
-
-% for gif
-\usepackage{animate}
-
-% chemistry
-\usepackage[version=3]{mhchem}
-% make inline codes smaller
-%\renewenvironment{texttt}{\small}{}
-\renewcommand{\texttt}[1]{{\small\ttfamily #1}}
-
-\usepackage{nomencl}
-\makenomenclature
-
-\usepackage{etoolbox}
-
+\input{preamble.tex}
 
 \title{基因系谱与溯祖过程}
 \author{Richard R. Hudson \and 许颖 \and 王强}
@@ -996,10 +901,10 @@ mtDNA 作为一个基因座, 核基因作为另一个基因座.
 \nomenclature[F, 01]{$E()$}{Expected value, 期望值}
 \nomenclature[F, 02]{$\text{Var}()$}{Variance of expected value, 期望值的方差}
                                                         	      	
-\nomenclature[S]{$\upmu$}{The mean number of mutations, 突变数的平均值}
-\nomenclature[S]{$t$}{The number of generations since the MRCA of two sampled homologous sequences, 从 MRCA 到两个抽样的同源序列的世代数}
-\nomenclature[S]{$S$}{The number of mutations that have occurred in the descent to the two descendent sequences, 向下到这两个后代的序列过程中产生的突变数}
-\nomenclature[S]{$T_{\text{tot}}$}{The sum of the lengths of the branches of the genealogy of a sample, 一个样本的系谱中所有分支长度的总和}
+\nomenclature[S, 01]{$\upmu$}{The mean number of mutations, 突变数的平均值}
+\nomenclature[S, 02]{$t$}{The number of generations since the MRCA of two sampled homologous sequences, 从 MRCA 到两个抽样的同源序列的世代数}
+\nomenclature[S, 03]{$S$}{The number of mutations that have occurred in the descent to the two descendent sequences, 向下到这两个后代的序列过程中产生的突变数}
+\nomenclature[S, 04]{$T_{\text{tot}}$}{The sum of the lengths of the branches of the genealogy of a sample, 一个样本的系谱中所有分支长度的总和}
                                                         	      	
 \printnomenclature
                                                         	      	
