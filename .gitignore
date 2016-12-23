@@ -22,6 +22,9 @@
 *.nlo
 *.nls
 
+# latexindent backup
+*.bak0
+
 # Pictures
 *.jpg
 *.jpeg
