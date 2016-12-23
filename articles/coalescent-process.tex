@@ -1,6 +1,7 @@
 % arara: xelatex
 % arara: nomencl
 % arara: xelatex
+% arara: indent: { overwrite: yes, trace: yes  }
 
 \documentclass[
     12pt,%
@@ -114,8 +115,8 @@
 \maketitle
 
 {
-\setcounter{tocdepth}{3}
-\tableofcontents
+    \setcounter{tocdepth}{3}
+    \tableofcontents
 }
 
 \section{引言}
@@ -133,7 +134,7 @@
     \centering
     \includegraphics{coalescent-process.images/image1.png}
     \caption{含有五个等位基因的系谱, 显示了溯祖事件间的时间间隔.
-    时间间隔 $T(i)$, 用方程 \ref{eq:5} 所给出的期望值成比例的长度表示出来.}
+        时间间隔 $T(i)$, 用方程 \ref{eq:5} 所给出的期望值成比例的长度表示出来.}
     \label{fig:1}
 \end{figure}
 
@@ -365,7 +366,7 @@ $–\uptheta C'(0)$, 其中 $–C'(0)$ 代表 $-C(\uptheta )$ 的导数, 取 $\u
 \begin{equation} \label{eq:11}
     \begin{split}
         Q_{n}(j) & = \left (\frac{n\upmu}{n\upmu + \frac{\binom{n}{2}}{2N}} \right )^{j} \frac{\frac{\binom{n}{2}}{2N}}{n\upmu + \frac{\binom{n}{2}}{2N}} \\
-                 & = \left (\frac{\uptheta}{\uptheta + n - 1} \right )^{j} \frac{n-1}{\uptheta + n - 1}
+        & = \left (\frac{\uptheta}{\uptheta + n - 1} \right )^{j} \frac{n-1}{\uptheta + n - 1}
     \end{split}
 \end{equation}
 
@@ -383,9 +384,9 @@ $n-1$ 的样本. 大小为 $n$ 的样本中有 $j$ 个分离位点的概率 $P_{
     \centering
     \includegraphics{coalescent-process.images/image2.png}
     \caption{在一个含有 20 个等位基因 $\uptheta = 4N\upmu = 20$ 的样本中分离位点数 $S$ 的分布.
-    用方程 \ref{eq:12} 计算无重组 (no-recombination) 分布 ($\mathrm{R}=4N\upmu =0$).
-    对于 $R=20$, 分布是用文中所述的蒙特卡洛方法做 100000 个重复得到的一个估计.
-    两种分布中 $S$ 的期望值都是 17.7, 这个值可以用方程 \ref{eq:6} 计算出来.}
+        用方程 \ref{eq:12} 计算无重组 (no-recombination) 分布 ($\mathrm{R}=4N\upmu =0$).
+        对于 $R=20$, 分布是用文中所述的蒙特卡洛方法做 100000 个重复得到的一个估计.
+        两种分布中 $S$ 的期望值都是 17.7, 这个值可以用方程 \ref{eq:6} 计算出来.}
     \label{fig:2}
 \end{figure}
 
@@ -451,7 +452,7 @@ $\mathbf{a}_{1}(t_{1})\mathbf{b}_{1}(t_{1})$ 世系的重组是有关的. $\math
         不同部分的祖先. 相比之下, 配子 1 有一个单独的祖先. 下一个事件, $\text{CA}_{1}$ 是一个共同祖先事件, 涉及到配子 2
         的两个祖先. 在这一点, 配子 2 的两个祖先中的一个是配子 2 的两个不相邻部分的祖先. 下一个事件, $\text{CA}_{2}$
         是一个共同祖先事件, 配子 1 和 2 的一部分的最近共同祖先终于出现. 在这一点有最近共同的片段是左边末端, 用 MRCA 标记的,
-        和右边末端, 也用 MRCA 标记. 最后一个事件, 是一个共同祖先事件, 样本配子中间片段的最近共同祖先出现.}
+    和右边末端, 也用 MRCA 标记. 最后一个事件, 是一个共同祖先事件, 样本配子中间片段的最近共同祖先出现.}
     \label{fig:4}
 \end{figure}
 
@@ -501,9 +502,9 @@ $T$ 由更多数量的相对较小的那些拥有关联较少的系谱的片段�
 
 \begin{equation} \label{eq:15}
     \begin{split}
-    \text{Var}(T) & \approx \frac{2 \left(\sum_{i=1}^{n-1} 1/i \right)}{R^{2}}(-R \\
-                  & + \frac{23R+101}{2\sqrt{97}} \log \left(\frac{2R+13-\sqrt{97}}{2R+13+\sqrt{97}} \frac{13+\sqrt{97}}{13-\sqrt{97}} \right) \\
-                  & + \frac{R-5}{2}\log \left(\frac{R^{2}+13R+18}{18} \right))
+        \text{Var}(T) & \approx \frac{2 \left(\sum_{i=1}^{n-1} 1/i \right)}{R^{2}}(-R \\
+        & + \frac{23R+101}{2\sqrt{97}} \log \left(\frac{2R+13-\sqrt{97}}{2R+13+\sqrt{97}} \frac{13+\sqrt{97}}{13-\sqrt{97}} \right) \\
+        & + \frac{R-5}{2}\log \left(\frac{R^{2}+13R+18}{18} \right))
     \end{split}
 \end{equation}
 
@@ -659,9 +660,9 @@ $\uptheta =5.0$. 同时还显示了 $M=\mathrm{\infty}$ 同样的统计分布, �
 相比之下, $M=\mathrm{\infty }$ 的情况有它集中在 15 附近的样式.
 
 \begin{figure}
-\centering
-\includegraphics{coalescent-process.images/image6.png}
-\caption{图 6}
+    \centering
+    \includegraphics{coalescent-process.images/image6.png}
+    \caption{图 6}
 \end{figure}
 
 图 6 (a)大小为 8 的一个样本的系谱图举例, 分别来自 2 个亚群体, 每个亚群体 4 个, 迁移率适度高.
@@ -676,9 +677,9 @@ $\uptheta =5.0$. 同时还显示了 $M=\mathrm{\infty}$ 同样的统计分布, �
 带箭头的点状线代表所选等位基因之间的突变率和/或和所选基因座连锁的位点间的重组事件.
 
 \begin{figure}
-\centering
-\includegraphics{coalescent-process.images/image7.png}
-\caption{图 7}
+    \centering
+    \includegraphics{coalescent-process.images/image7.png}
+    \caption{图 7}
 \end{figure}
 
 图 7(a) $\uppi$ 的分布, $\uppi$ 为取自同一个亚群体的大小为 10 的样本中等位基因间差异的平均对数. 群体由三个亚种群组成,
@@ -820,7 +821,7 @@ Hudson 和 Kaplan (1988) 的预测是基于所有位点不影响 \textit{Adh} �
 个核苷酸区域的不同位点数目. 这种估算有如下应用.
 
 一个窗口 (同样用于展示观察到的和预测的种内多态性) 沿着一对线性序列滑动, 这两个序列一个来自 \textit{D.
-melanogaster} 另一个来自 \textit{D. simulans}. 在窗口的每一个位置, 窗口中的序列间差异的数目被数出来, 并且用 $t$
+    melanogaster} 另一个来自 \textit{D. simulans}. 在窗口的每一个位置, 窗口中的序列间差异的数目被数出来, 并且用 $t$
 和窗口宽度的乘积去除. 这个量作为窗口中间位点的 $\uptheta$ 的估算. 这显然是一个平滑过程,
 这个过程指定了某个位点由周围位点变异的积累所决定的 $\uptheta$ 值. 选取 $t$ 来产生一个好的拟合性,
 因此而给出一个符合观察值的多态性平均水平. 手上有这些 $\uptheta_{i}$, 就可以预测和选择位点连锁的任何位点集合的多态性.
@@ -829,7 +830,7 @@ melanogaster} 另一个来自 \textit{D. simulans}. 在窗口的每一个位置,
 3${\prime}$ 数据以及 \textit{D. simulans} 的一个序列, 观察的和预测的多态性水平如图 8 所示. 假设完全中性,
 整体忽略 \textbf{F}/\textbf{S} 多态性, 两个取样序列在一个区域内差异的预期数目是这个区域内位点的 $\uptheta _{i}$ 之和.
 这个预测如图 8a 所示. 因为 $\uptheta _{i}$ 和两物种间的差异是成比例的, 图 8 所示的预测的多态性水平与 \textit{D.
-melanogaster} 和 \textit{D. simulans} 之间的差异水平是成比例的. 看起来有较高和较低约束条件的区域. 特别注意的是
+    melanogaster} 和 \textit{D. simulans} 之间的差异水平是成比例的. 看起来有较高和较低约束条件的区域. 特别注意的是
 5${\prime}$ 侧翼区低的预测多态性水平和低的观察多态性水平, 在图 8 中数目大约是 400-450.
 也要注意 \textit{Adh} 的第三个编码外显子的沉默位点预测有一个相对高的多态性水平. 这归因于这些位点的物种间的相对高水平的差异.
 但是观察到的这些位点的多态性水平比预测的更高. 如果假设 192 号 \textbf{F}/\textbf{S} 位点多态性是平衡的,
@@ -844,16 +845,16 @@ Kaplan (1988)给出的预先估算小了 2. 预期和观察的 \textbf{S} 基因
 有了现代的聚合酶链式反应, 这样的任务看起来不再是不可能的. 在很多情况下, 选择已经强烈显示来,
 比如 \textit{Fundulus} 中的 \textit{Ldh}(Powers 等 1983), \textit{Mytilis} 中的 \textit{Lap}(Hilbish 和
 Koehn1985), \textit{Tigriopus} 中的 \textit{Gpt}(Burton 和 Feldman1983), \textit{D.
-melanogaster} 中的 \textit{Gpdh} (Barnese 和 Laurie-Ahlberg 1986 ;Oakeshott 等 1984), 和 Koehn 等 (1983)
+    melanogaster} 中的 \textit{Gpdh} (Barnese 和 Laurie-Ahlberg 1986 ;Oakeshott 等 1984), 和 Koehn 等 (1983)
 和 Zera 等 (1985) 描述的其他一些可能提供了好的测验例子, 如果序列能得到的话.
 
 Hudson 等 (1987) 的测验对于检测选择的统计学能力还有待研究. 图 8 和 9
 所示的观察的和预测的曲线的拟合度好坏的度量也有待研究.
 
 \begin{figure}
-\centering
-\includegraphics{coalescent-process.images/image8.png}
-\caption{图 8}
+    \centering
+    \includegraphics{coalescent-process.images/image8.png}
+    \caption{图 8}
 \end{figure}
 
 图 8 在一个 ``滑动窗口'' 中, 含有 F 的序列和含有 \textbf{S} 的序列之间差异的观察值和预测值相对于核苷酸的位置作图. Adh
@@ -867,9 +868,9 @@ Hudson 等 (1987) 的测验对于检测选择的统计学能力还有待研究. 
 (见正文中对这些参数的解释).
 
 \begin{figure}
-\centering
-\includegraphics{coalescent-process.images/image9.png}
-\caption{图 9}
+    \centering
+    \includegraphics{coalescent-process.images/image9.png}
+    \caption{图 9}
 \end{figure}
 
 图 9 一个滑动窗口中, 含有 \textbf{S} 的配子间差异的预测值 (平衡选择模型下) 和观察值相对于核苷酸位置作图. 所有参数和图
@@ -896,10 +897,10 @@ Hudson 等 (1987) 的测验对于检测选择的统计学能力还有待研究. 
     \centering
     \includegraphics{coalescent-process.images/image10.png}
     \caption{当一个选择上有利的突变刚刚固定时的一个含 6 个等位基因的样本的系谱图举例.
-    黑体的曲线显示了有利突变的频率作为时间的函数. 样本在 \(t_{\mathrm{s}}\)
-    时刻的系谱在函数上叠加表示出来. 例子中没有描述重组. 如果
-    \(t_{\mathrm{s}}\) 显著小于 \(N\), 多数溯祖事件会发生在接近 0 时刻处.
-    在这种情况下, 和没有选择的系谱相比, 系谱的总体大小将会是小的,
+        黑体的曲线显示了有利突变的频率作为时间的函数. 样本在 \(t_{\mathrm{s}}\)
+        时刻的系谱在函数上叠加表示出来. 例子中没有描述重组. 如果
+        \(t_{\mathrm{s}}\) 显著小于 \(N\), 多数溯祖事件会发生在接近 0 时刻处.
+        在这种情况下, 和没有选择的系谱相比, 系谱的总体大小将会是小的,
     因此将会有相对少的变异. 同样, 系谱的形状和中性平衡的系谱不同}
 \end{figure}
 
@@ -963,43 +964,43 @@ mtDNA 作为一个基因座, 核基因作为另一个基因座.
 
 % nomenclature groups
 \renewcommand{\nomgroup}[1]{%
-\item[\bfseries
-\ifthenelse{\equal{#1}{A}}{缩写}{%
-\ifthenelse{\equal{#1}{N}}{名词}{%
-\ifthenelse{\equal{#1}{S}}{符号}{}}}%
-]}
-
-\nomenclature[A]{DNA}{Deoxyribonucleic acid, 脱氧核糖核酸}
-\nomenclature[A]{MRCA}{Most Recent Common Ancestor, 最近共同祖先}
-\nomenclature[A]{bp}{base pair, 碱基对}
-\nomenclature[A]{W--F model}{Wright--Fisher model, W--F 模型}
-
-\nomenclature[N]{Pedigree}{家谱}
-\nomenclature[N]{Lineage}{世系}
-\nomenclature[N]{Genealogy}{系谱}
-\nomenclature[N]{Sample}{样本}
-\nomenclature[N]{Gene tree}{基因树}
-\nomenclature[N]{Polymorphism}{多态性}
-\nomenclature[N]{Homologous sequences}{同源序列}
-\nomenclature[N]{Coalescent process}{溯祖过程}
-\nomenclature[N]{Allele}{等位基因}
-\nomenclature[N]{Variation}{变异}
-\nomenclature[N]{Infinite-site model}{无限位点模型}
-\nomenclature[N]{Infinite allele model}{无限等位基因模型}
-\nomenclature[N]{Equation}{方程}
-\nomenclature[N]{Demographics}{人口统计学}
-\nomenclature[N]{Sampled allele}{样本等位基因}
-\nomenclature[N]{Stochastic precess}{随机过程}
-\nomenclature[N]{Hitchhiking}{搭乘效应}
-
-\nomenclature[S]{$E()$}{Expected value, 期望值}
-\nomenclature[S]{$\text{Var}()$}{Variance of expected value, 期望值的方差}
-
-\nomenclature[S]{$\upmu$}{The mean number of mutations, 突变数的平均值}
-\nomenclature[S]{$t$}{The number of generations since the MRCA of two sampled homologous sequences, 从 MRCA 到两个抽样的同源序列的世代数}
-\nomenclature[S]{$S$}{The number of mutations that have occurred in the descent to the two descendent sequences, 向下到这两个后代的序列过程中产生的突变数}
-\nomenclature[S]{$T_{\text{tot}}$}{The sum of the lengths of the branches of the genealogy of a sample, 一个样本的系谱中所有分支长度的总和}
-
-\printnomenclature
-
+    \item[\bfseries
+        \ifthenelse{\equal{#1}{A}}{缩写}{%
+            \ifthenelse{\equal{#1}{N}}{名词}{%
+                \ifthenelse{\equal{#1}{S}}{符号}{}}}%
+            ]}
+                        	      	
+            \nomenclature[A]{DNA}{Deoxyribonucleic acid, 脱氧核糖核酸}
+            \nomenclature[A]{MRCA}{Most Recent Common Ancestor, 最近共同祖先}
+            \nomenclature[A]{bp}{base pair, 碱基对}
+            \nomenclature[A]{W--F model}{Wright--Fisher model, W--F 模型}
+                        	      	
+            \nomenclature[N]{Pedigree}{家谱}
+            \nomenclature[N]{Lineage}{世系}
+            \nomenclature[N]{Genealogy}{系谱}
+            \nomenclature[N]{Sample}{样本}
+            \nomenclature[N]{Gene tree}{基因树}
+            \nomenclature[N]{Polymorphism}{多态性}
+            \nomenclature[N]{Homologous sequences}{同源序列}
+            \nomenclature[N]{Coalescent process}{溯祖过程}
+            \nomenclature[N]{Allele}{等位基因}
+            \nomenclature[N]{Variation}{变异}
+            \nomenclature[N]{Infinite-site model}{无限位点模型}
+            \nomenclature[N]{Infinite allele model}{无限等位基因模型}
+            \nomenclature[N]{Equation}{方程}
+            \nomenclature[N]{Demographics}{人口统计学}
+            \nomenclature[N]{Sampled allele}{样本等位基因}
+            \nomenclature[N]{Stochastic precess}{随机过程}
+            \nomenclature[N]{Hitchhiking}{搭乘效应}
+                        	      	
+            \nomenclature[S]{$E()$}{Expected value, 期望值}
+            \nomenclature[S]{$\text{Var}()$}{Variance of expected value, 期望值的方差}
+                        	      	
+            \nomenclature[S]{$\upmu$}{The mean number of mutations, 突变数的平均值}
+            \nomenclature[S]{$t$}{The number of generations since the MRCA of two sampled homologous sequences, 从 MRCA 到两个抽样的同源序列的世代数}
+            \nomenclature[S]{$S$}{The number of mutations that have occurred in the descent to the two descendent sequences, 向下到这两个后代的序列过程中产生的突变数}
+            \nomenclature[S]{$T_{\text{tot}}$}{The sum of the lengths of the branches of the genealogy of a sample, 一个样本的系谱中所有分支长度的总和}
+                        	      	
+            \printnomenclature
+                        	      	
 \end{document}
