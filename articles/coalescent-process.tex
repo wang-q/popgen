@@ -10,23 +10,20 @@
 
 \usepackage[a4paper, top=1in, bottom=1.25in, left=1in, right=1in]{geometry}
 
-
 \usepackage{amssymb,amsmath}
 \usepackage{upgreek} % upright greek symbols
 
-% xetex
-\usepackage{fontspec,xltxtra,xunicode}
-
-% 西文字体
+% xetex 西文字体
 % https://www.reddit.com/r/typography/comments/2vzkad/a_good_serif_webfont_to_pair_with_fira_sans_thats/
-\setmainfont[BoldFont={Charter Bold}, ItalicFont={Charter Italic}]{Charter}
-\setmonofont{Fira Mono}
+\usepackage{fontspec,xltxtra,xunicode}
+    \setmainfont[BoldFont={Charter Bold}, ItalicFont={Charter Italic}]{Charter}
+    \setmonofont{Fira Mono}
 
 % 中文字体
 \usepackage{xeCJK}
-\setCJKmainfont[BoldFont={Songti SC Bold}, ItalicFont={Kaiti SC Regular}]{Songti SC Regular}
-\xeCJKsetup{CJKecglue = {\hskip 0pt plus 0.08\baselineskip}, xCJKecglue = {false}}
-\punctstyle{plain}
+    \setCJKmainfont[BoldFont={Songti SC Bold}, ItalicFont={Kaiti SC Regular}]{Songti SC Regular}
+    \xeCJKsetup{CJKecglue = {\hskip 0pt plus 0.08\baselineskip}, xCJKecglue = {false}}
+    \punctstyle{plain}
 
 % don't move this line above
 \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
@@ -38,9 +35,10 @@
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
 \IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+    \usepackage{microtype}
+    \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
+
 \usepackage[unicode=true]{hyperref}
 \hypersetup{
             pdftitle={基因系谱与溯祖过程},
@@ -101,7 +99,7 @@
 \usepackage{nomencl}
 \makenomenclature
 
-\usepackage{ifthen}
+\usepackage{etoolbox}
 
 
 \title{基因系谱与溯祖过程}
@@ -963,44 +961,46 @@ mtDNA 作为一个基因座, 核基因作为另一个基因座.
 \renewcommand{\nomname}{}
 
 % nomenclature groups
-\renewcommand{\nomgroup}[1]{%
+\renewcommand\nomgroup[1]{%
     \item[\bfseries
-        \ifthenelse{\equal{#1}{A}}{缩写}{%
-            \ifthenelse{\equal{#1}{N}}{名词}{%
-                \ifthenelse{\equal{#1}{S}}{符号}{}}}%
-            ]}
-                                    	      	
-            \nomenclature[A]{DNA}{Deoxyribonucleic acid, 脱氧核糖核酸}
-            \nomenclature[A]{MRCA}{Most Recent Common Ancestor, 最近共同祖先}
-            \nomenclature[A]{bp}{base pair, 碱基对}
-            \nomenclature[A]{W--F model}{Wright--Fisher model, W--F 模型}
-                                    	      	
-            \nomenclature[N]{Pedigree}{家谱}
-            \nomenclature[N]{Lineage}{世系}
-            \nomenclature[N]{Genealogy}{系谱}
-            \nomenclature[N]{Sample}{样本}
-            \nomenclature[N]{Gene tree}{基因树}
-            \nomenclature[N]{Polymorphism}{多态性}
-            \nomenclature[N]{Homologous sequences}{同源序列}
-            \nomenclature[N]{Coalescent process}{溯祖过程}
-            \nomenclature[N]{Allele}{等位基因}
-            \nomenclature[N]{Variation}{变异}
-            \nomenclature[N]{Infinite-site model}{无限位点模型}
-            \nomenclature[N]{Infinite allele model}{无限等位基因模型}
-            \nomenclature[N]{Equation}{方程}
-            \nomenclature[N]{Demographics}{人口统计学}
-            \nomenclature[N]{Sampled allele}{样本等位基因}
-            \nomenclature[N]{Stochastic precess}{随机过程}
-            \nomenclature[N]{Hitchhiking}{搭乘效应}
-                                    	      	
-            \nomenclature[S]{$E()$}{Expected value, 期望值}
-            \nomenclature[S]{$\text{Var}()$}{Variance of expected value, 期望值的方差}
-                                    	      	
-            \nomenclature[S]{$\upmu$}{The mean number of mutations, 突变数的平均值}
-            \nomenclature[S]{$t$}{The number of generations since the MRCA of two sampled homologous sequences, 从 MRCA 到两个抽样的同源序列的世代数}
-            \nomenclature[S]{$S$}{The number of mutations that have occurred in the descent to the two descendent sequences, 向下到这两个后代的序列过程中产生的突变数}
-            \nomenclature[S]{$T_{\text{tot}}$}{The sum of the lengths of the branches of the genealogy of a sample, 一个样本的系谱中所有分支长度的总和}
-                                    	      	
-            \printnomenclature
-                                    	      	
+        \ifstrequal{#1}{A}{缩写}{%
+            \ifstrequal{#1}{N}{名词}{%
+                \ifstrequal{#1}{F}{函数}{%
+                    \ifstrequal{#1}{S}{符号}{}}}}%
+    ]
+}
+                
+\nomenclature[A]{DNA}{Deoxyribonucleic acid, 脱氧核糖核酸}
+\nomenclature[A]{MRCA}{Most Recent Common Ancestor, 最近共同祖先}
+\nomenclature[A]{bp}{base pair, 碱基对}
+\nomenclature[A]{W--F model}{Wright--Fisher model, W--F 模型}
+                                                        	      	
+\nomenclature[N]{Pedigree}{家谱}
+\nomenclature[N]{Lineage}{世系}
+\nomenclature[N]{Genealogy}{系谱}
+\nomenclature[N]{Sample}{样本}
+\nomenclature[N]{Gene tree}{基因树}
+\nomenclature[N]{Polymorphism}{多态性}
+\nomenclature[N]{Homologous sequences}{同源序列}
+\nomenclature[N]{Coalescent process}{溯祖过程}
+\nomenclature[N]{Allele}{等位基因}
+\nomenclature[N]{Variation}{变异}
+\nomenclature[N]{Infinite-site model}{无限位点模型}
+\nomenclature[N]{Infinite allele model}{无限等位基因模型}
+\nomenclature[N]{Equation}{方程}
+\nomenclature[N]{Demographics}{人口统计学}
+\nomenclature[N]{Sampled allele}{样本等位基因}
+\nomenclature[N]{Stochastic precess}{随机过程}
+\nomenclature[N]{Hitchhiking}{搭乘效应}
+                                                        	      	
+\nomenclature[F, 01]{$E()$}{Expected value, 期望值}
+\nomenclature[F, 02]{$\text{Var}()$}{Variance of expected value, 期望值的方差}
+                                                        	      	
+\nomenclature[S]{$\upmu$}{The mean number of mutations, 突变数的平均值}
+\nomenclature[S]{$t$}{The number of generations since the MRCA of two sampled homologous sequences, 从 MRCA 到两个抽样的同源序列的世代数}
+\nomenclature[S]{$S$}{The number of mutations that have occurred in the descent to the two descendent sequences, 向下到这两个后代的序列过程中产生的突变数}
+\nomenclature[S]{$T_{\text{tot}}$}{The sum of the lengths of the branches of the genealogy of a sample, 一个样本的系谱中所有分支长度的总和}
+                                                        	      	
+\printnomenclature
+                                                        	      	
 \end{document}
