@@ -6,7 +6,9 @@
 
 所有原始的文献库在 zotero 中, 安装 ZotFile 和 zotero-better-bibtex 插件.
 
-导出为 `Better bibtex` (不用 biblatex), 再用 Jabref 打开修改.
+zotero-better-bibtex 格式设为 `[auth:lower][year]`.
+
+导出为 `Better bibtex` (不用 biblatex), 必要时用 Jabref 打开修改.
 
 `\cite{Watterson1975}`: `Watterson 1975`
 `\parencite{Watterson1975}`: `(Watterson 1975)`
@@ -49,56 +51,10 @@ sudo mv indent.yaml /usr/local/texlive/2016/texmf-dist/scripts/arara/rules/
 
 ```bash
 cat <<'EOF' > defaultSettings.yaml
-#
-# defaultSettings.yaml for latexindent.pl,
-#                      a script that aims to
-#                      beautify .tex, .sty, .cls files
-#
-# (or latexindent.exe if you're on Windows)
-#
-# You're welcome to change anything you like in here, but
-# it would probably be better to have your own user settings
-# files somewhere else- remember that this file may be overwritten
-# anytime that you update your distribution. Please see the manual
-# for details of how to setup your own settings files.
-#
-# Please read the manual first to understand what each switch does :)
-
-# Default value of indentation
 defaultIndent: "    "
-
-# default file extension of backup file (if original is overwritten with -w switch)
-# for example, if your .tex file is called
-#       myfile.tex
-# and you specify the backupExtension as BACKUP.bak then your
-# backup file will be
-#       myfileBACKUP.bak
 backupExtension: .bak
-
-# only one backup per file; if onlyOneBackUp is 0 then the
-# number on the extension increments by 1 each time
-# (this is in place as a safety measure) myfile.bak0, myfile.bak1, myfile.bak2
-#
-# if you set onlyOnebackUp to 1, then the backup file will
-# be overwritten each time (not recommended until you trust the script)
-onlyOneBackUp: 0
-
-# some users may only want a set number of backup files,
-# say at most 3; in which case, they can change this switch.
-# If maxNumberOfBackUps is set to 0 (or less) then infinitely
-# many backups are possible, unless onlyOneBackUp is switched on
+onlyOneBackUp: 1
 maxNumberOfBackUps: 1
-
-# some users may wish to cycle through back up files, for example,
-# with maxNumberOfBackUps: 4, they may wish to delete the oldest
-# back up file, and keep only the most recent.
-#
-#    copy myfile.bak1 to myfile.bak0
-#    copy myfile.bak2 to myfile.bak1
-#    copy myfile.bak3 to myfile.bak2
-#    copy myfile.bak4 to myfile.bak3
-#
-# the back up will be written to myfile.bak4
 cycleThroughBackUps: 0
 
 # indent preamble
