@@ -34,31 +34,33 @@
     \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
 
-\usepackage[unicode=true]{hyperref}
-    \urlstyle{same}  % don't use monospace font for urls
-
 % citations
 % https://www.sharelatex.com/learn/Biblatex_citation_styles
-\usepackage[backend=biber,
-            style=chicago-authordate,
-            url=false,
-            doi=false,
-            isbn=false,
-            maxcitenames=2,
-            maxbibnames=40,
-            abbreviate=true]{biblatex}
+\usepackage[
+    backend=biber,
+    style=chicago-authordate,
+    url=false,
+    doi=false,
+    isbn=false,
+    maxcitenames=2,
+    maxbibnames=40,
+    abbreviate=true
+]{biblatex}
 \addbibresource{popgen.bib}
 % http://tex.stackexchange.com/questions/55780/disable-month-in-biblatex-bibliography
-\AtEveryCitekey{
-    \clearlist{language}
-    \clearfield{month}
-    \clearfield{day}
-}
+%\AtEveryCitekey{
+%    \clearlist{language}
+%    \clearfield{month}
+%    \clearfield{day}
+%}
 \AtEveryBibitem{
     \clearlist{language}
     \clearfield{month}
     \clearfield{day}
 }
+
+\usepackage[unicode=true]{hyperref}
+    \urlstyle{same}  % don't use monospace font for urls
 
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -69,16 +71,14 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\IfFileExists{parskip.sty}{%
+
 \usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
+\setlength{\parindent}{2em}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
     \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{0}
+%\setcounter{secnumdepth}{0} % will prevent numbering for sections
+
 % Redefines (sub)paragraphs to behave more like sections
 \ifx\paragraph\undefined\else
 \let\oldparagraph\paragraph
@@ -100,9 +100,6 @@
 % http://tex.stackexchange.com/questions/125579/subcaption-with-beamer
 \usepackage[compatibility=false]{caption}
 \usepackage{subcaption}
-
-% for gif
-\usepackage{animate}
 
 % chemistry
 \usepackage[version=3]{mhchem}
