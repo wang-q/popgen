@@ -47,16 +47,16 @@
     abbreviate=true
 ]{biblatex}
 \addbibresource{popgen.bib}
-% http://tex.stackexchange.com/questions/55780/disable-month-in-biblatex-bibliography
-%\AtEveryCitekey{
-%    \clearlist{language}
-%    \clearfield{month}
-%    \clearfield{day}
-%}
-\AtEveryBibitem{
-    \clearlist{language}
-    \clearfield{month}
-    \clearfield{day}
+% http://tex.stackexchange.com/questions/150710/ignore-a-bibliography-field-e-g-urldate-for-eliminating-of-biblatex-biber-w
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map[overwrite=true]{
+      \step[fieldset=urldate, null]
+      \step[fieldset=language, null]
+      \step[fieldset=month, null]
+      \step[fieldset=day, null]
+    }
+  }
 }
 
 \usepackage[unicode=true]{hyperref}
