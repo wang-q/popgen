@@ -1,0 +1,172 @@
+% arara: xelatex
+% arara: biber
+% arara: nomencl
+% arara: xelatex
+% arara: indent: { overwrite: yes, trace: yes  }
+% arara: clean: {files: [IDAM-theory.aux, IDAM-theory.idx, IDAM-theory.ilg, IDAM-theory.ind, IDAM-theory.log, IDAM-theory.bbl, IDAM-theory.bcf, IDAM-theory.ist, IDAM-theory.blg, IDAM-theory.run.xml, IDAM-theory.nlo, IDAM-theory.nls]}
+
+\documentclass[12pt]{article}
+
+\input{preamble.tex}
+
+\title{估算群体中的 indel 附近 \\ 单核苷酸突变率相对增加的模型}
+\date{\vspace{-5ex}}
+
+%%% document starts here
+
+\begin{document}
+
+\maketitle
+
+假设 indel 的发生率 $\mu_\text{i}$ 很小, 并且是中性的.
+对于 indel 和非 indel 等位基因, 令 $\mu$ 和 $\mu_\text{het}$ 分别代表纯合子和杂合子中的中性核苷酸突变,
+并且令 $f = \mu_\text{het} / \mu$.
+指定 $N_\text{i}$ 和 $N_\text{ni}$ 分别代表 indel 和非 indel 附近自 MRCA 之后的中性突变数.
+我们要寻求期望值 $E(N_\text{i})$ 和 $E(N_\text{ni})$.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=8cm]{IDAM-theory.images/image1.png}
+    \caption{
+        $n$ 个基因的样本中 $k$ 个基因含有中性 indel $I$ 的中性系谱.
+        回溯到 $I$ 的时间为 $T$, $T^*$ 代表回溯到样本共同祖先 MRCA 的额外的时间.
+        $I$ 处的世系数为 $\nu$.
+    }
+    \label{fig:1}
+\end{figure}
+
+在图 \ref{fig:1} 的系谱中, $n$ 个基因的样本中 $k$ 个携带 indel,
+由 $k \geq 1$ 且 $n-k \geq 1$, 可知 $1 \leq k \leq ≤ n-1$;
+$I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2 \leq \nu \leq n-k+1$.
+以 $2N_\text{e}$ 个世代为单位衡量所有时间, 其中 $N_\text{e}$ 代表有效群体大小.
+回溯到 $I$ 的时间是 $T$, $T^*$ 代表回溯到样本共同祖先 MRCA 的额外的时间.
+忽略 $k$ 和 $n$ 的相关性.
+
+根据标准的中性突变模型 (Kimura 1983;Watterson 1975)有:
+\begin{equation} \label{eq:1}
+    E(S) = \mu E(T_{\text{tot}}) \text{.}
+\end{equation}
+
+这个模型的基本假设是:
+\begin{itemize}[leftmargin=4em]
+    \item 每个子代相对于亲代的突变个数服从泊松分布, 平均值为 $\mu$;
+    \item $\mu$ 为常数, 与群体大小、基因型和时间无关;
+    \item 无选择和重组.
+\end{itemize}
+
+对于一个 indel, $T_\text{het}$ 和 $T_\text{hom}$ 分别代表 indel 在杂合子和纯合子中经历的时间. 可知:
+\begin{equation} \label{eq:2}
+    T = T_\text{het} + T_\text{hom} \text{,}
+\end{equation}
+根据方程 \ref{eq:1} 和 \ref{eq:2} 可以得到 $E(N_\text{i})$:
+\begin{equation} \label{eq:3}
+    \begin{split}
+        E(N_\text{i}) &= 2 N_\text{e} [\mu_\text{het}E(T_{\text{het}}) + \mu E(T_{\text{hom}}) + \mu E(T^*)] \\
+        &= 2 N_\text{e}\mu [\frac{\mu_\text{het}}{\mu} E(T_{\text{het}}) + E(T_{\text{hom}}) + E(T^*)] \\
+        &= \frac{\theta}{2} [f E(T_{\text{het}}) + E(T_{\text{hom}}) + E(T^*)] \\
+        &= \frac{\theta}{2} [f E(T_{\text{het}}) + f E(T_{\text{hom}}) - f E(T_{\text{hom}}) + E(T_{\text{hom}}) + E(T^*)] \\
+        &= \frac{\theta}{2} [f E(T) + E(T^*) - (f - 1) E(T_{\text{hom}})] \text{,}
+    \end{split}
+\end{equation}
+其中 $\theta =4N_\text{e}\mu$.
+
+在过去的 $t$ 时刻, indel 的频率是 $X(t)$, 则:
+\begin{itemize}[leftmargin=4em]
+    \item indel 在杂合子中的条件概率为 $1-X(t)$;
+    \item indel 在纯合子中的条件概率为 $X(t)$;
+    \item 非 indel 在杂合子中的条件概率为 $X(t)$;
+    \item 非 indel 在纯合子中的条件概率为 $1-X(t)$.
+\end{itemize}
+在 $t$ 时刻 indel 纯合性的指示函数为:
+\begin{equation} \label{eq:4}
+    \chi_\text{hom}(t) = {\begin{cases}
+        1 & \text{如果 indel 在时刻~} t \text{~处于纯合子}, \\
+        0 & \text{如果 indel 在时刻~} t \text{~处于杂合子}.
+        \end{cases}}
+\end{equation}
+因此,
+\begin{equation} \label{eq:5}
+    T_\text{hom} = \int_{0}^{T} \chi_\text{hom}(t)dt \text{.}
+\end{equation}
+这导出了条件期望
+\begin{equation} \label{eq:6}
+    \begin{split}
+        E[T_\text{hom} | X(0)=x] &= E \left\{ E\left[ \int_{0}^{T} \chi_\text{hom}(t)dt \bigm| T, X(0) = x  \right] \right\}
+    \end{split}
+\end{equation}
+
+\newpage
+\renewcommand{\nomname}{} % no nomenclature title
+
+% nomenclature groups
+\renewcommand\nomgroup[1]{%
+    \item[\large\bfseries
+        \ifstrequal{#1}{A}{缩写}{%
+            \ifstrequal{#1}{B}{符号}{%
+                \ifstrequal{#1}{C}{函数}{%
+                    \ifstrequal{#1}{N}{名词}{%
+                        \ifstrequal{#1}{P}{短语}{%
+        }}}}}%
+    ]
+}
+
+\nomenclature[A, 01]{DNA}{Deoxyribonucleic acid, 脱氧核糖核酸}
+\nomenclature[A, 02]{MRCA}{Most Recent Common Ancestor, 最近共同祖先}
+\nomenclature[A, 03]{Indel}{Insertion/Deletion, 插入/缺失}
+
+\nomenclature[B, 01]{$\mu$}{The mean number of mutations, 突变数的平均值}
+\nomenclature[B, 02]{$t$}{The number of generations since the MRCA of two sampled homologous sequences, 从 MRCA 到两个抽样的同源序列的世代数}
+\nomenclature[B, 03]{$S$}{The number of mutations that have occurred in the descent to the two descendent sequences, 向下到这两个后代的序列过程中产生的突变数}
+\nomenclature[B, 04]{$T_{\text{tot}}$}{The sum of the lengths of the branches of the genealogy of a sample, 一个样本的系谱中所有分支长度的总和}
+
+\nomenclature[C, 01]{$E()$}{Expected value, 期望值}
+\nomenclature[C, 02]{$\text{Var}()$}{Variance of expected value, 期望值的方差}
+
+\nomenclature[N]{Patterns}{样式}
+\nomenclature[N]{Pedigree}{家谱}
+\nomenclature[N]{Lineage}{世系}
+\nomenclature[N]{Genealogy}{系谱}
+\nomenclature[N]{Sample}{样本}
+\nomenclature[N]{Sampling}{抽样}
+\nomenclature[N]{Gene tree}{基因树}
+\nomenclature[N]{Forces}{力量}
+\nomenclature[N]{Polymorphism}{多态性}
+\nomenclature[N]{Homologous sequences}{同源序列}
+\nomenclature[N]{Coalescent process}{溯祖过程}
+\nomenclature[N]{Alleles}{等位基因}
+\nomenclature[N]{Mutations}{突变}
+\nomenclature[N]{Segregating sites}{隔离位点}
+\nomenclature[N]{Variations}{变异}
+\nomenclature[N]{Equation}{方程}
+\nomenclature[N]{Demographics}{人口统计学}
+\nomenclature[N]{Fitness}{适合度}
+\nomenclature[N]{Sampled allele}{样本等位基因}
+\nomenclature[N]{Stochastic precess}{随机过程}
+\nomenclature[N]{Restriction map}{限制性图谱}
+\nomenclature[N]{Moment generating function}{矩母函数}
+\nomenclature[N]{Hitchhiking}{搭乘效应}
+\nomenclature[N]{Distritution}{分布}
+
+\nomenclature[N]{Indicator function}{指示函数}
+\nomenclature[N]{Homozygote}{纯合子}
+\nomenclature[N]{Heterozygote}{杂合子}
+\nomenclature[N]{Conditional expectation}{条件期望}
+
+\nomenclature[P, 01]{Properties of genealogy}{系谱特性}
+\nomenclature[P, 02]{Statistical properties of genealogy}{系谱的统计特性}
+\nomenclature[P, 03]{The sampling that produces one generation from the last}{上一代形成下一代的模式, 代间模式}
+\nomenclature[P, 04]{Samples of allele}{等位基因样本}
+\nomenclature[P, 05]{Bear, bearing, bore}{携带}
+\nomenclature[P, 05]{Selectively maintained}{选择性保留地}
+\nomenclature[P, 06]{Infinite-sites model}{无限位点模型}
+\nomenclature[P, 07]{Infinite allele model}{无限等位基因模型}
+
+\printnomenclature
+
+\newpage
+\section*{参考文献}
+\addcontentsline{toc}{section}{参考文献}
+
+\printbibliography[heading=none]
+
+\end{document}
