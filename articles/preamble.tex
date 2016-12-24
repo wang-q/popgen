@@ -32,7 +32,7 @@
 \IfFileExists{microtype.sty}{%
     \usepackage{microtype}
     \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
+    }{}
 
 % citations
 % https://www.sharelatex.com/learn/Biblatex_citation_styles
@@ -49,18 +49,18 @@
 \addbibresource{popgen.bib}
 % http://tex.stackexchange.com/questions/150710/ignore-a-bibliography-field-e-g-urldate-for-eliminating-of-biblatex-biber-w
 \DeclareSourcemap{
-  \maps[datatype=bibtex]{
-    \map[overwrite=true]{
-      \step[fieldset=urldate, null]
-      \step[fieldset=language, null]
-      \step[fieldset=month, null]
-      \step[fieldset=day, null]
+    \maps[datatype=bibtex]{
+        \map[overwrite=true]{
+            \step[fieldset=urldate, null]
+            \step[fieldset=language, null]
+            \step[fieldset=month, null]
+            \step[fieldset=day, null]
+        }
     }
-  }
 }
 
 \usepackage[unicode=true]{hyperref}
-    \urlstyle{same}  % don't use monospace font for urls
+\urlstyle{same}  % don't use monospace font for urls
 
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -81,12 +81,12 @@
 
 % Redefines (sub)paragraphs to behave more like sections
 \ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+    \let\oldparagraph\paragraph
+    \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
 \fi
 \ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+    \let\oldsubparagraph\subparagraph
+    \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
 % set default figure placement to htbp
