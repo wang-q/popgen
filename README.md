@@ -15,7 +15,25 @@ zotero-better-bibtex 格式设为 `[auth:lower][year]`.
 
 ## arara and latexindent
 
-* `indent.yaml` for arara
+### arara for TexShop
+
+* arara.engine
+
+```bash
+cp ~/Library/TeXShop/Engines/Inactive/Arara/arara.engine ~/Library/TeXShop/Engines/
+chmod +x ~/Library/TeXShop/Engines/arara.engine
+```
+
+* Perl modules
+
+```bash
+#plenv global system
+curl -L http://cpanmin.us | perl - --sudo App::cpanminus
+sudo cpanm YAML::Tiny File::HomeDir
+#plenv global 5.18.4
+```
+
+### `indent.yaml` for arara
 
 ```bash
 # curl -O https://raw.githubusercontent.com/cmhughes/latexindent.pl/master/indent.yaml
@@ -47,7 +65,7 @@ EOF
 sudo mv indent.yaml /usr/local/texlive/2016/texmf-dist/scripts/arara/rules/
 ```
 
-* `defaultSettings.yaml` for latexindent
+### `defaultSettings.yaml` for latexindent
 
 ```bash
 cat <<'EOF' > defaultSettings.yaml
@@ -277,5 +295,4 @@ checkunmatchedbracket:
 EOF
 
 sudo mv defaultSettings.yaml /usr/local/texlive/2016/texmf-dist/scripts/latexindent/
-
 ```
