@@ -1,7 +1,9 @@
+% http://tex.stackexchange.com/questions/175671/how-to-use-arara-with-texshop
+% !TEX TS-program = arara
 % arara: xelatex
 % arara: biber
 % arara: nomencl
-% arara: xelatex
+% arara: xelatex: { synctex: yes }
 % arara: indent: { overwrite: yes, trace: yes  }
 % arara: clean: {files: [IDAM-theory.aux, IDAM-theory.idx, IDAM-theory.ilg, IDAM-theory.ind, IDAM-theory.log, IDAM-theory.bbl, IDAM-theory.bcf, IDAM-theory.ist, IDAM-theory.blg, IDAM-theory.run.xml, IDAM-theory.nlo, IDAM-theory.nls]}
 
@@ -19,9 +21,9 @@
 \maketitle
 
 假设 indel 的发生率 $\mu_\text{i}$ 很小, 并且是中性的.
-对于 indel 和非 indel 等位基因, 令 $\mu$ 和 $\mu_\text{het}$ 分别代表纯合子和杂合子中的中性核苷酸突变,
+对于 indel 和 nonindel 等位基因, 令 $\mu$ 和 $\mu_\text{het}$ 分别代表纯合子和杂合子中的中性核苷酸突变,
 并且令 $f = \mu_\text{het} / \mu$.
-指定 $N_\text{i}$ 和 $N_\text{ni}$ 分别代表 indel 和非 indel 附近自 MRCA 之后的中性突变数.
+指定 $N_\text{i}$ 和 $N_\text{ni}$ 分别代表 indel 和 nonindel 附近自 MRCA 之后的中性突变数.
 我们要寻求期望值 $E(N_\text{i})$ 和 $E(N_\text{ni})$.
 
 \begin{figure}
@@ -36,7 +38,7 @@
 \end{figure}
 
 在图 \ref{fig:1} 的系谱中, $n$ 个基因的样本中 $k$ 个携带 indel,
-由 $k \geq 1$ 且 $n-k \geq 1$, 可知 $1 \leq k \leq ≤ n-1$;
+由 $k \geq 1$ 且 $n-k \geq 1$, 可知 $1 \leq k \leq n-1$;
 $I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2 \leq \nu \leq n-k+1$.
 以 $2N_\text{e}$ 个世代为单位衡量所有时间, 其中 $N_\text{e}$ 代表有效群体大小.
 回溯到 $I$ 的时间是 $T$, $T^*$ 代表回溯到样本共同祖先 MRCA 的额外的时间.
@@ -44,7 +46,8 @@ $I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2
 
 根据标准的中性突变模型 (Kimura 1983;Watterson 1975)有:
 \begin{equation} \label{eq:1}
-    E(S) = \mu E(T_{\text{tot}}) \text{.}
+    E(S) = \mu E(T_{\text{tot}})
+    \text{.}
 \end{equation}
 
 这个模型的基本假设是:
@@ -56,30 +59,34 @@ $I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2
 
 对于一个 indel, $T_\text{het}$ 和 $T_\text{hom}$ 分别代表 indel 在杂合子和纯合子中经历的时间. 可知:
 \begin{equation} \label{eq:2}
-    T = T_\text{het} + T_\text{hom} \text{,}
+    T = T_\text{het} + T_\text{hom}
+    \text{,}
 \end{equation}
 根据方程 \ref{eq:1} 和 \ref{eq:2} 可以得到 $E(N_\text{i})$:
 \begin{equation} \label{eq:3}
     \begin{split}
-        E(N_\text{i}) &= 2 N_\text{e} [\mu_\text{het}E(T_{\text{het}}) + \mu E(T_{\text{hom}}) + \mu E(T^*)] \\
+        E(N_\text{i})
+        &= 2 N_\text{e} [\mu_\text{het}E(T_{\text{het}}) + \mu E(T_{\text{hom}}) + \mu E(T^*)] \\
         &= 2 N_\text{e}\mu [\frac{\mu_\text{het}}{\mu} E(T_{\text{het}}) + E(T_{\text{hom}}) + E(T^*)] \\
         &= \frac{\theta}{2} [f E(T_{\text{het}}) + E(T_{\text{hom}}) + E(T^*)] \\
         &= \frac{\theta}{2} [f E(T_{\text{het}}) + f E(T_{\text{hom}}) - f E(T_{\text{hom}}) + E(T_{\text{hom}}) + E(T^*)] \\
-        &= \frac{\theta}{2} [f E(T) + E(T^*) - (f - 1) E(T_{\text{hom}})] \text{,}
+        &= \frac{\theta}{2} [f E(T) + E(T^*) - (f - 1) E(T_{\text{hom}})]
+        \text{,}
     \end{split}
 \end{equation}
-其中 $\theta =4N_\text{e}\mu$.
+其中 $\theta = 4N_\text{e}\mu$.
 
 在过去的 $t$ 时刻, indel 的频率是 $X(t)$, 则:
 \begin{itemize}[leftmargin=4em]
     \item indel 在杂合子中的条件概率为 $1-X(t)$;
     \item indel 在纯合子中的条件概率为 $X(t)$;
-    \item 非 indel 在杂合子中的条件概率为 $X(t)$;
-    \item 非 indel 在纯合子中的条件概率为 $1-X(t)$.
+    \item  nonindel 在杂合子中的条件概率为 $X(t)$;
+    \item  nonindel 在纯合子中的条件概率为 $1-X(t)$.
 \end{itemize}
 在 $t$ 时刻 indel 纯合性的指示函数为:
 \begin{equation} \label{eq:4}
-    \chi_\text{hom}(t) = {\begin{cases}
+    \chi_\text{hom}(t) =
+    {\begin{cases}
         1 & \text{如果 indel 在时刻~} t \text{~处于纯合子}, \\
         0 & \text{如果 indel 在时刻~} t \text{~处于杂合子}.
         \end{cases}}
@@ -91,8 +98,80 @@ $I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2
 这导出了条件期望
 \begin{equation} \label{eq:6}
     \begin{split}
-        E[T_\text{hom} | X(0)=x] &= E \left\{ E\left[ \int_{0}^{T} \chi_\text{hom}(t)dt \bigm| T, X(0) = x  \right] \right\}
+        E[T_\text{hom} | X(0)=x]
+        &= E \left\{ E\left[ \int_{0}^{T} \chi_\text{hom}(t) dt \mathrel{\Big|} T, X(0)=x  \right] \right\} \\
+        &= E \left\{ \int_{0}^{T} E[\chi_\text{hom}(t)] dt \mathrel{\Big|} X(0)=x \right\} \\
+        &= E \left\{ \int_{0}^{T} X(t) dt \mathrel{\Big|} X(0)=x \right\}
+        \text{.}
     \end{split}
+\end{equation}
+类似地, 可得
+\begin{equation} \label{eq:7}
+    E[T_\text{het} | X(0)=x] = E \left\{ \int_{0}^{T} [1-X(t)] dt \mathrel{\Big|} X(0)=x \right\}
+    \text{.}
+\end{equation}
+
+交换 $E[T_\text{het}]$ 和 $E[T_\text{hom}]$, 用上一段的推导方法可得
+\begin{equation} \label{eq:8}
+    \begin{split}
+        E(N_\text{ni})
+        &= \frac{\theta}{2} [f E(T_{\text{hom}}) + E(T_{\text{het}}) + E(T^*)] \\
+        &= \frac{\theta}{2} [E(T) + E(T^*) + (f - 1) E(T_{\text{hom}})]
+        \text{.}
+    \end{split}
+\end{equation}
+这样, 我们必须计算方程 \ref{eq:3} 和 \ref{eq:8} 里的三个平均时间.
+自此以后, 假设 $\theta_\text{i} = 4N_\text{e}\mu_\text{i} \rightarrow 0$,
+并忽略 indel 到 nonindel 的回复突变.
+
+为了计算方程 \ref{eq:6}, 首先要注意 indel 在群体中还没有固定 ($0 \le k \le n$),
+可用 \textcite{maruyama1975} 的方程 16 来计算一个 indel 固定前的平均时间:
+\begin{equation*}
+    \lim_{p \to 0} \frac{F_x^\text{(1)}(p)}{\Phi(p, x)}
+    = \frac{4N_\text{e}}{1-4N_\text{e}\nu}
+    \left\{
+    \int_0^x \frac{1-(1-\xi)^{1-4N_\text{e}\nu}}{\xi} d\xi \\
+    + \frac{1-(1-x)^{1-4N_\text{e}\nu}}{(1-x)^{1-4N_\text{e}\nu}}
+    \int_x^1 \frac{(1-\xi)^{1-4N_\text{e}\nu}}{\xi} d\xi
+    \right\}
+    \text{.}
+\end{equation*}
+根据我们的需要对这个方程做修改:
+(i) 除以 $2N_\text{e}$ 来衡量时间;
+(ii) 突变率趋近于 0, 即 $4N_\text{e}\nu$ 趋近于 0;
+(iii) 在两个被积函数中都插入一个因子 $\xi$, 即同乘以 $\xi$. 可以得到:
+\begin{equation} \label{eq:9}
+    \begin{split}
+        E[T_\text{hom} | X(0)=x]
+        &= 2 \int_0^x \xi d\xi + \frac{2x}{1-x} \int_x^1 (1-\xi) d\xi \\
+        &= x^2 + \frac{2x}{1-x} \left(\frac{1}{2} (x - 1)^2 \right) \\
+        &= x
+        \text{.}
+    \end{split}
+\end{equation}
+
+为了从方程 \ref{eq:9} 中推导出 $E[T_\text{hom}]$, 需要得到在 $n$ 个基因的样本中观察到 $k$ 个 indels 的概率密度 $X(0)$.
+根据贝叶斯公式,群体频谱为 $\theta/x$ \parencite{kimura1969, kimura1971a, ewens2004},
+样本频谱为 $\theta_\text{i}/x$ \parencite{watterson1975, ewens2004}, 可以得条件密度为
+\begin{equation} \label{eq:10}
+    \begin{split}
+        \phi(x)
+        &= \binom{n}{k} x^k (1-x)^{n-k} \frac{\theta_\text{i}}{x} / \frac{\theta_\text{i}}{k} \\
+        &= k \binom{n}{k} x^{k-1} (1-x)^{n-k}
+        \text{.}
+    \end{split}
+\end{equation}
+结合方程 \ref{eq:9} 和 \ref{eq:10} 得到
+\begin{equation} \label{eq:11}
+    a \equiv E(T_\text{hom}) = \frac{k}{n+1}
+    \text{.}
+\end{equation}
+
+从 \textcite{wiuf1999} 得知:
+\begin{equation} \label{eq:12}
+    b \equiv E(T) = \frac{2k}{n-1} - \frac{2}{n}
+    + 2 \binom{n-1}{k}^{-1} \sum_{j=2}^{n-k+1} \frac{1}{j} \binom{n-j-1}{k-1}
+    \text{.}
 \end{equation}
 
 \newpage
@@ -151,6 +230,9 @@ $I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2
 \nomenclature[N]{Homozygote}{纯合子}
 \nomenclature[N]{Heterozygote}{杂合子}
 \nomenclature[N]{Conditional expectation}{条件期望}
+\nomenclature[N]{Probability density}{概率密度}
+\nomenclature[N]{Bayes' formula}{贝叶斯公式}
+\nomenclature[N]{Frequency spectrum}{频谱}
 
 \nomenclature[P, 01]{Properties of genealogy}{系谱特性}
 \nomenclature[P, 02]{Statistical properties of genealogy}{系谱的统计特性}
