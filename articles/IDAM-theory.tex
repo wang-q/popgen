@@ -80,8 +80,8 @@ $I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2
 \begin{itemize}[leftmargin=4em]
     \item indel 在杂合子中的条件概率为 $1-X(t)$;
     \item indel 在纯合子中的条件概率为 $X(t)$;
-    \item  nonindel 在杂合子中的条件概率为 $X(t)$;
-    \item  nonindel 在纯合子中的条件概率为 $1-X(t)$.
+    \item nonindel 在杂合子中的条件概率为 $X(t)$;
+    \item nonindel 在纯合子中的条件概率为 $1-X(t)$.
 \end{itemize}
 在 $t$ 时刻 indel 纯合性的指示函数为:
 \begin{equation} \label{eq:4}
@@ -208,6 +208,80 @@ $I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2
     \text{.}
 \end{equation}
 
+可知函数 $f(r)$ 的图像为双曲线,
+\begin{itemize}[leftmargin=4em]
+    \item 当 $r = 1$ 时, $f = 1$;
+    \item 当 $r \rightarrow (b-a)/a$ 时, $f \rightarrow \infty$;
+    \item 当 $r < (a+c)/(b+c-a)$ 时, $f < 0$.
+\end{itemize}
+根据参数的实际意义, 要求 $f > 0$, $r$ 的取值范围为 $(\frac{a+c}{b+c-a}, \frac{b−a}{a})$.
+
+将方程 \ref{eq:17} 改写为
+\begin{equation} \label{eq:19}
+    r = \frac{b-a}{a} - \frac{(b-2a)(b+c)}{a(b+c-a+fa)}
+    \text{.}
+\end{equation}
+为了让 $r$ 有意义, 要求满足 $b > 2a$.
+
+用方程 \ref{eq:9} 类似的推导方法, 这次在 \textcite{maruyama1975} 的方程 16 中插入因子 $1 - \xi$, 可得
+\begin{equation} \label{eq:20}
+    \begin{split}
+        E[T_\text{het} | X(0)=x]
+        &= 2 \int_0^x (1-\xi) d\xi + \frac{2x}{1-x} \int_x^1 \frac{(1-\xi)^2}{\xi} d\xi \\
+        &= -x \left( 1 + \frac{2 \ln{x}}{1-x} \right) \\
+        &> -x + \frac{2x(1-x)}{1-x} = x
+        \text{.}
+    \end{split}
+\end{equation}
+比较方程 \ref{eq:20} 与 \ref{eq:9}, 可知
+\begin{equation} \label{eq:21}
+    E[T_\text{het} | X(0)=x] > E[T_\text{hom} | X(0)=x]
+    \text{.}
+\end{equation}
+从方程 \ref{eq:1} 与 \ref{eq:21}, 得到
+\begin{equation} \label{eq:22}
+    E[T | X(0)=x] > 2 E[T_\text{hom} | X(0)=x]
+    \text{.}
+\end{equation}
+现在 方程 \ref{eq:11}, \ref{eq:12} 和 \ref{eq:22} 意味着 $b > 2a$.
+
+前述结果表明, 从方程 \ref{eq:18} 估计 $f$ 时, 将期望一个较大的置信区间.
+
+上面是从每个 $k$ 来得到 $f$ 的估计值.
+因为分子生物学参数 $f$ 的真实的值必须与样本参数 $k$ 无关, 下面是从完整的数据集中得到 $f$ 的估计值的方法.
+将方程 \ref{eq:3} 和 \ref{eq:8} 转换为 依赖于 $k$ 的形式:
+\begin{equation} \label{eq:23}
+    \begin{split}
+        E(N_\text{i}^{(k)})
+        &= \frac{\theta}{2} [f E(T^{(k)}) + E(T^{*(k)}) - (f-1) E(T_{\text{hom}}^{(k)})] \\
+        &= \frac{\theta}{2} [fb^{(k)} + c^{(k)} - (f-1)a^{(k)}]
+        \text{,} \\
+        E(N_\text{ni}^{(k)})
+        &= \frac{\theta}{2} [b^{(k)} + c^{(k)} + (f-1)a^{(k)}]
+        \text{.}
+    \end{split}
+\end{equation}
+
+引入方程 \ref{eq:11}, \ref{eq:12} 和 \ref{eq:16}, 并重新定义:
+\begin{equation} \label{eq:24}
+    \begin{split}
+        E(N_\text{i}) &= \sum_{k=1}^{n-1} E(N_\text{i}^{(k)})
+        \text{,} \\
+        E(N_\text{ni}) &= \sum_{k=1}^{n-1} E(N_\text{ni}^{(k)})
+        \text{,} \\
+        a &= \sum_{k=1}^{n-1} a^{(k)} = \frac{n(n-1)}{2(n+1)}
+        \text{,} \\
+        b &= \sum_{k=1}^{n-1} b^{(k)} = n-2+\frac{2}{n}
+        + 2 \sum_{j=2}^{n} \frac{1}{j} \sum_{k=1}^{n-j+1} \binom{n-1}{k}^{-1} \binom{n-j-1}{k-1}
+        \text{,} \\
+        c &= \sum_{k=1}^{n-1} c^{(k)}
+        = 2 \sum_{j=2}^{n} \frac{j-1}{j} \sum_{k=1}^{n-j+1} \binom{n-1}{k}^{-1} \binom{n-j}{k-1}
+        \text{,}
+    \end{split}
+\end{equation}
+方程 \ref{eq:23} 对 $k$ 累加, 得到方程 \ref{eq:24} 中的重新定义值 $a$, $b$, $c$.
+方程 \ref{eq:17} 和 \ref{eq:18} 可得完整的数据集中 $f$ 的估计值.
+
 \newpage
 \section*{专用词与符号}
 \renewcommand{\nomname}{} % no nomenclature title
@@ -235,14 +309,10 @@ $I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2
 \nomenclature[C, 01]{$E()$}{Expected value, 期望值}
 \nomenclature[C, 02]{$\text{Var}()$}{Variance of expected value, 期望值的方差}
 
-\nomenclature[N]{Patterns}{样式}
-\nomenclature[N]{Pedigree}{家谱}
 \nomenclature[N]{Lineage}{世系}
-\nomenclature[N]{Genealogy}{系谱}
 \nomenclature[N]{Sample}{样本}
 \nomenclature[N]{Alleles}{等位基因}
 \nomenclature[N]{Mutations}{突变}
-\nomenclature[N]{Segregating sites}{隔离位点}
 \nomenclature[N]{Equation}{方程}
 \nomenclature[N]{Distritution}{分布}
 
@@ -253,6 +323,7 @@ $I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2
 \nomenclature[N]{Probability density}{概率密度}
 \nomenclature[N]{Bayes' formula}{贝叶斯公式}
 \nomenclature[N]{Frequency spectrum}{频谱}
+\nomenclature[N]{Confidence interval}{置信区间}
 
 \printnomenclature
 
