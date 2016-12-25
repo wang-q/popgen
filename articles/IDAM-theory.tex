@@ -174,7 +174,42 @@ $I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2
     \text{.}
 \end{equation}
 
+对于 $E(T^*)$ 的计算中需要用到 $I$ 时刻的世系数目 $\nu$ 。用 $T_{j1}$ 代表 $j$ 个世系到 MRCA 的时间.
+它的平均值为 \parencite{kingman1982}:
+\begin{equation} \label{eq:13}
+    E(T_{j1}) = 2 \left( 1- \frac{1}{j}\right)
+    \text{.}
+\end{equation}
+由此可知:
+\begin{equation} \label{eq:14}
+    E(T^*) = E[E(T_{\nu 1} | \nu)] =  2 E\left( 1- \frac{1}{\nu}\right)
+    \text{.}
+\end{equation}
+从 \textcite{wiuf1999} 的方程 18 可以知道 ($2 \leq j \leq n-k+1$):
+\begin{equation} \label{eq:15}
+    P(\nu = j) = \binom{n-j}{k-1} \binom{n-1}{k}^{-1}
+    \text{.}
+\end{equation}
+将方程 \ref{eq:15} 代入 方程 \ref{eq:14} 得到:
+\begin{equation} \label{eq:16}
+    c \equiv E(T^{*}) = 2 \binom{n-1}{k}^{-1} \sum_{j=2}^{n-k+1} \left(\frac{j-1}{j}\right) \binom{n-j}{k-1}
+    \text{.}
+\end{equation}
+
+方程 \ref{eq:3} 除以 方程 \ref{eq:3}, 再代入 (\ref{eq:11}), (\ref{eq:12}) 和 (\ref{eq:16}), 化简得到
+\begin{equation} \label{eq:17}
+    r \equiv \frac{E(N_\text{i})}{E(N_\text{ni})}
+    = \frac{fb+c-(f-1)a}{b+c+(f-1)a}
+    \text{.}
+\end{equation}
+我们已知 $a$, $b$ 和 $c$, 并可以用 $N_\text{i} / N_\text{ni}$ 来估计 $r$, 以 $f$ 为未知数解方程 \ref{eq:17} 得
+\begin{equation} \label{eq:18}
+    f = \frac{a+c-r(b+c-a)}{a(r+1)-b}
+    \text{.}
+\end{equation}
+
 \newpage
+\section*{专用词与符号}
 \renewcommand{\nomname}{} % no nomenclature title
 
 % nomenclature groups
@@ -184,8 +219,7 @@ $I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2
             \ifstrequal{#1}{B}{符号}{%
                 \ifstrequal{#1}{C}{函数}{%
                     \ifstrequal{#1}{N}{名词}{%
-                        \ifstrequal{#1}{P}{短语}{%
-        }}}}}%
+        }}}}%
     ]
 }
 
@@ -206,24 +240,10 @@ $I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2
 \nomenclature[N]{Lineage}{世系}
 \nomenclature[N]{Genealogy}{系谱}
 \nomenclature[N]{Sample}{样本}
-\nomenclature[N]{Sampling}{抽样}
-\nomenclature[N]{Gene tree}{基因树}
-\nomenclature[N]{Forces}{力量}
-\nomenclature[N]{Polymorphism}{多态性}
-\nomenclature[N]{Homologous sequences}{同源序列}
-\nomenclature[N]{Coalescent process}{溯祖过程}
 \nomenclature[N]{Alleles}{等位基因}
 \nomenclature[N]{Mutations}{突变}
 \nomenclature[N]{Segregating sites}{隔离位点}
-\nomenclature[N]{Variations}{变异}
 \nomenclature[N]{Equation}{方程}
-\nomenclature[N]{Demographics}{人口统计学}
-\nomenclature[N]{Fitness}{适合度}
-\nomenclature[N]{Sampled allele}{样本等位基因}
-\nomenclature[N]{Stochastic precess}{随机过程}
-\nomenclature[N]{Restriction map}{限制性图谱}
-\nomenclature[N]{Moment generating function}{矩母函数}
-\nomenclature[N]{Hitchhiking}{搭乘效应}
 \nomenclature[N]{Distritution}{分布}
 
 \nomenclature[N]{Indicator function}{指示函数}
@@ -234,20 +254,10 @@ $I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2
 \nomenclature[N]{Bayes' formula}{贝叶斯公式}
 \nomenclature[N]{Frequency spectrum}{频谱}
 
-\nomenclature[P, 01]{Properties of genealogy}{系谱特性}
-\nomenclature[P, 02]{Statistical properties of genealogy}{系谱的统计特性}
-\nomenclature[P, 03]{The sampling that produces one generation from the last}{上一代形成下一代的模式, 代间模式}
-\nomenclature[P, 04]{Samples of allele}{等位基因样本}
-\nomenclature[P, 05]{Bear, bearing, bore}{携带}
-\nomenclature[P, 05]{Selectively maintained}{选择性保留地}
-\nomenclature[P, 06]{Infinite-sites model}{无限位点模型}
-\nomenclature[P, 07]{Infinite allele model}{无限等位基因模型}
-
 \printnomenclature
 
 \newpage
 \section*{参考文献}
-\addcontentsline{toc}{section}{参考文献}
 
 \printbibliography[heading=none]
 
