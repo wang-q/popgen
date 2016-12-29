@@ -53,6 +53,43 @@
 
 \subsection{多态性}
 
+\begin{figure}
+    \center
+    \begin{tikzpicture}[scale=0.5]
+        \tikzset{
+            drift/.style={
+                draw=none,
+                postaction={draw=gray,decorate,decoration={segment length=6pt,amplitude=2pt,meta-amplitude=6pt,#1}}
+            }
+        }
+        \draw[help lines] (0,0) grid (30,10);
+        \draw[ultra thick, black] (0,0) to (30,0);
+        \draw[ultra thick, black] (0,0) to (0,11);
+        \node[below =2mm of {(0,0)}] () {$0$};
+        \node[below left=2mm of {(30,0)}] () {$t$};
+        \node[left =2mm of {(0,0)}] () {$0.0$};
+        \node[left =2mm of {(0,10)}] () {$1.0$};
+        \node[label={[label distance=4mm,text depth=-1ex,rotate=0]below:Time}] at (15,0) {};
+        \node[label={[label distance=4mm,text depth=-1ex,rotate=90]Allel freq.}] at (0,5) {};
+        \draw[thick, drift=random steps]
+        (0.1,0)
+        .. controls (2,2) ..
+        (3,0);
+        \draw[thick, drift=random steps]
+        (1,0)
+        .. controls (4,6) ..
+        (7,0);
+        \draw[ultra thick, drift=random steps, dashed]
+        (1.2,0)
+        .. controls (4,6) ..
+        (7,7)
+        .. controls (8,8) ..
+        (9,10);
+    \end{tikzpicture}
+    \caption{The fate of selectively neutral mutations in a population.}
+    \label{fig:2}
+\end{figure}
+
 \subsection{差异度}
 
 \section{度量差异度与多态性}
