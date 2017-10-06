@@ -32,20 +32,20 @@
 
         \tikzset{
             invisible/.style={
-                draw,
-                circle,
-                minimum size=0mm,
-                inner sep=0pt,
-                outer sep=0pt,
-            },
+                    draw,
+                    circle,
+                    minimum size=0mm,
+                    inner sep=0pt,
+                    outer sep=0pt,
+                },
             visible/.style={
-                draw,
-                circle,
-                fill,
-                inner sep=0pt,
-                outer sep=0pt,
-                minimum size=3pt,
-            },
+                    draw,
+                    circle,
+                    fill,
+                    inner sep=0pt,
+                    outer sep=0pt,
+                    minimum size=3pt,
+                },
         }
 
         \path[draw] % we place the nodes once
@@ -152,7 +152,7 @@ $I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2
     {\begin{cases}
         1 & \text{如果 indel 在时刻~} t \text{~处于纯合子}, \\
         0 & \text{如果 indel 在时刻~} t \text{~处于杂合子}.
-        \end{cases}}
+    \end{cases}}
 \end{equation}
 因此,
 \begin{equation} \label{eq:5}
@@ -352,12 +352,12 @@ $I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2
 % nomenclature groups
 \renewcommand\nomgroup[1]{%
     \item[\large\bfseries
-        \ifstrequal{#1}{A}{缩写}{%
-            \ifstrequal{#1}{B}{符号}{%
-                \ifstrequal{#1}{C}{函数}{%
-                    \ifstrequal{#1}{N}{名词}{%
-        }}}}%
-    ]
+                \ifstrequal{#1}{A}{缩写}{%
+                    \ifstrequal{#1}{B}{符号}{%
+                        \ifstrequal{#1}{C}{函数}{%
+                            \ifstrequal{#1}{N}{名词}{%
+                            }}}}%
+          ]
 }
 
 \nomenclature[A, 01]{DNA}{Deoxyribonucleic acid, 脱氧核糖核酸}
