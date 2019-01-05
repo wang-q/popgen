@@ -33,36 +33,15 @@ sudo cpanm YAML::Tiny File::HomeDir
 #plenv global 5.18.4
 ```
 
-### `indent.yaml` for arara
+## `indent.yaml` for arara
 
 ```bash
-# curl -O https://raw.githubusercontent.com/cmhughes/latexindent.pl/master/indent.yaml
-# sed -i".bak" "s/indent.pl/indent/" indent.yaml
+#curl -O https://raw.githubusercontent.com/cereda/arara/master/rules/indent.yaml
+#mv indent.yaml ~/Scripts/popgen/config/
 
-cat <<'EOF' > indent.yaml
-!config
-identifier: indent
-name: Indent
-command: <arara> @{ isWindows( "cmd /c latexindent.exe", "latexindent" ) } @{silent} @{trace} @{localSettings} @{cruft}@{ isNotEmpty( cruft, '="'.concat(parameters.cruft).concat('"') ) } @{overwrite}  @{onlyDefault} @{output} "@{file}" @{ isNotEmpty( output, '"'.concat(parameters.output).concat('"') ) }
-arguments:
-- identifier: overwrite
-  flag: <arara> @{ isTrue( parameters.overwrite, "-w" ) }
-- identifier: silent
-  flag: <arara> @{ isTrue( parameters.silent, "-s" ) }
-- identifier: trace
-  flag: <arara> @{ isTrue( parameters.trace, "-t" ) }
-- identifier: localSettings
-  flag: <arara> @{ isTrue( parameters.localSettings, "-l" ) }
-- identifier: output
-  flag: <arara> @{ isNotEmpty( parameters.output, "-o" ) }
-- identifier: onlyDefault
-  flag: <arara> @{ isTrue( parameters.onlyDefault, "-d" ) }
-- identifier: cruft
-  flag: <arara> @{ isNotEmpty( parameters.cruft, "-c" ) }
+sudo cp -f ~/Scripts/popgen/config/indent.yaml \
+    /usr/local/texlive/2018/texmf-dist/scripts/arara/rules/
 
-EOF
-
-sudo mv indent.yaml /usr/local/texlive/2016/texmf-dist/scripts/arara/rules/
 ```
 
 ## `defaultSettings.yaml` for latexindent
