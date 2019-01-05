@@ -31,24 +31,6 @@
     \begin{tikzpicture}[scale=1.5]
 
         \tikzset{
-<<<<<<< HEAD
-            invisible/.style={
-                    draw,
-                    circle,
-                    minimum size=0mm,
-                    inner sep=0pt,
-                    outer sep=0pt,
-                },
-            visible/.style={
-                    draw,
-                    circle,
-                    fill,
-                    inner sep=0pt,
-                    outer sep=0pt,
-                    minimum size=3pt,
-                },
-        }
-=======
                 invisible/.style={
                         draw,
                         circle,
@@ -65,7 +47,6 @@
                         minimum size=3pt,
                     },
             }
->>>>>>> mol-evo
 
         \path[draw] % we place the nodes once
         node[invisible] (0) at ({5*cos(60)},{5*sin(60)}) {}
@@ -370,16 +351,6 @@ $I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2
 
 % nomenclature groups
 \renewcommand\nomgroup[1]{%
-<<<<<<< HEAD
-    \item[\large\bfseries
-                \ifstrequal{#1}{A}{缩写}{%
-                    \ifstrequal{#1}{B}{符号}{%
-                        \ifstrequal{#1}{C}{函数}{%
-                            \ifstrequal{#1}{N}{名词}{%
-                            }}}}%
-          ]
-}
-=======
         \item[\large\bfseries
                 \ifstrequal{#1}{A}{缩写}{%
                         \ifstrequal{#1}{B}{符号}{%
@@ -388,7 +359,6 @@ $I$ 处的世系数为 $\nu$, 由 $\nu \geq 2$ 且 $n-k \geq \nu - 1$, 可知 $2
                                             }}}}%
             ]
     }
->>>>>>> mol-evo
 
 \nomenclature[A, 01]{DNA}{Deoxyribonucleic acid, 脱氧核糖核酸}
 \nomenclature[A, 02]{MRCA}{Most Recent Common Ancestor, 最近共同祖先}

@@ -47,26 +47,13 @@ cpanm --verbose YAML::Tiny File::HomeDir Unicode::GCString Log::Log4perl Log::Di
 sudo cp -f ~/Scripts/popgen/config/indent.yaml \
     /usr/local/texlive/2018/texmf-dist/scripts/arara/rules/
 
-<<<<<<< HEAD
-sudo mv indent.yaml /usr/local/texlive/2017/texmf-dist/scripts/arara/rules/
-=======
->>>>>>> mol-evo
 ```
 
 ## `defaultSettings.yaml` for latexindent
 
 ```bash
-<<<<<<< HEAD
-curl -O https://raw.githubusercontent.com/cmhughes/latexindent.pl/master/defaultSettings.yaml
-sed -i".bak" "s/onlyOneBackUp: 0/onlyOneBackUp: 1/" defaultSettings.yaml
-sed -i".bak" "s/maxNumberOfBackUps: 0/maxNumberOfBackUps: 1/" defaultSettings.yaml
-sed -i".bak" 's/\t/    /g' defaultSettings.yaml
-
-sudo cp defaultSettings.yaml /usr/local/texlive/2017/texmf-dist/scripts/latexindent/
-=======
 sudo cp -f ~/Scripts/popgen/config/defaultSettings.yaml \
     /usr/local/texlive/2018/texmf-dist/scripts/latexindent/
 
->>>>>>> mol-evo
 ```
 
