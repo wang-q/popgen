@@ -3,6 +3,7 @@
 [TOC levels=1-3]: # " "
 - [Some articles](#some-articles)
 - [Citations](#citations)
+- [Increase TeX capacity](#increase-tex-capacity)
 - [arara and latexindent](#arara-and-latexindent)
     - [arara for TexShop](#arara-for-texshop)
     - [`indent.yaml` for arara](#indentyaml-for-arara)
@@ -18,6 +19,21 @@ zotero-better-bibtex 格式设为 `[auth:lower][year]`.
 导出为 `Better bibtex` (不用 biblatex), 必要时用 Jabref 打开修改.
 
 `\cite{watterson1975}`: `Watterson 1975` `\parencite{watterson1975}`: `(Watterson 1975)`
+
+# Increase TeX capacity
+
+```bash
+#https://tex.stackexchange.com/questions/35393/tex-capacity-exceeded-with-glossary-package
+
+sudo vim $(kpsewhich texmf.cnf)
+
+# Add the following lines
+#extra_mem_top.xelatex = 20000000
+#main_memory.xelatex = 20000000
+
+sudo fmtutil-sys --byfmt xelatex
+
+```
 
 # arara and latexindent
 
