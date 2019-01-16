@@ -68,6 +68,9 @@ sudo cp -f ~/Scripts/popgen/config/indent.yaml \
 ## `defaultSettings.yaml` for latexindent
 
 ```bash
+#curl -O https://raw.githubusercontent.com/cmhughes/latexindent.pl/master/defaultSettings.yaml
+#mv defaultSettings.yaml ~/Scripts/popgen/config/
+
 sudo cp -f ~/Scripts/popgen/config/defaultSettings.yaml \
     /usr/local/texlive/2018/texmf-dist/scripts/latexindent/
 
