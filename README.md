@@ -57,8 +57,8 @@ cpanm --verbose YAML::Tiny File::HomeDir Unicode::GCString Log::Log4perl Log::Di
 ## `indent.yaml` for arara
 
 ```bash
-#curl -O https://raw.githubusercontent.com/cereda/arara/master/rules/indent.yaml
-#mv indent.yaml ~/Scripts/popgen/config/
+# curl -O https://raw.githubusercontent.com/cereda/arara/master/rules/indent.yaml
+# mv indent.yaml ~/Scripts/popgen/config/
 
 sudo cp -f ~/Scripts/popgen/config/indent.yaml \
     /usr/local/texlive/2019/texmf-dist/scripts/arara/rules/
@@ -68,8 +68,8 @@ sudo cp -f ~/Scripts/popgen/config/indent.yaml \
 ## `defaultSettings.yaml` for latexindent
 
 ```bash
-#curl -O https://raw.githubusercontent.com/cmhughes/latexindent.pl/master/defaultSettings.yaml
-#mv defaultSettings.yaml ~/Scripts/popgen/config/
+# curl -O https://raw.githubusercontent.com/cmhughes/latexindent.pl/master/defaultSettings.yaml
+# mv defaultSettings.yaml ~/Scripts/popgen/config/
 
 sudo cp -f ~/Scripts/popgen/config/defaultSettings.yaml \
     /usr/local/texlive/2019/texmf-dist/scripts/latexindent/
