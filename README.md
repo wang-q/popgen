@@ -61,7 +61,7 @@ cpanm --verbose YAML::Tiny File::HomeDir Unicode::GCString Log::Log4perl Log::Di
 #mv indent.yaml ~/Scripts/popgen/config/
 
 sudo cp -f ~/Scripts/popgen/config/indent.yaml \
-    /usr/local/texlive/2018/texmf-dist/scripts/arara/rules/
+    /usr/local/texlive/2019/texmf-dist/scripts/arara/rules/
 
 ```
 
@@ -72,7 +72,7 @@ sudo cp -f ~/Scripts/popgen/config/indent.yaml \
 #mv defaultSettings.yaml ~/Scripts/popgen/config/
 
 sudo cp -f ~/Scripts/popgen/config/defaultSettings.yaml \
-    /usr/local/texlive/2018/texmf-dist/scripts/latexindent/
+    /usr/local/texlive/2019/texmf-dist/scripts/latexindent/
 
 ```
 
